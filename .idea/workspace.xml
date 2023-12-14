@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db1d39e5-f695-4fce-9c15-d0b069417652" name="Changes" comment="holi">
+    <list default="true" id="db1d39e5-f695-4fce-9c15-d0b069417652" name="Changes" comment="SQL actualizado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/proyectoFinal.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/proyectoFinal.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +50,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.GUI (4)">
+  <component name="RunManager" selected="Application.GUI (2)">
     <configuration name="GUI (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI" />
       <module name="untitled9" />
@@ -65,14 +65,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GUI (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="GUI (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI" />
       <module name="untitled9" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GUI (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="GUI (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI" />
       <module name="untitled9" />
       <method v="2">
@@ -88,11 +88,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GUI (4)" />
-        <item itemvalue="Application.GUI" />
-        <item itemvalue="Application.GUI (3)" />
         <item itemvalue="Application.GUI (2)" />
+        <item itemvalue="Application.GUI" />
         <item itemvalue="Application.GUI (1)" />
+        <item itemvalue="Application.GUI (5)" />
+        <item itemvalue="Application.GUI (4)" />
       </list>
     </recent_temporary>
   </component>
@@ -111,7 +111,7 @@
       <workItem from="1702254143138" duration="3049000" />
       <workItem from="1702259843344" duration="48000" />
       <workItem from="1702409881314" duration="8572000" />
-      <workItem from="1702556237200" duration="6139000" />
+      <workItem from="1702556237200" duration="10911000" />
     </task>
     <task id="LOCAL-00001" summary="Conexion a base de datos">
       <created>1700609100853</created>
@@ -155,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702566442122</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="SQL actualizado">
+      <created>1702566715199</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702566715199</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +184,7 @@
     <MESSAGE value="Adiccion de botones" />
     <MESSAGE value="Correciones" />
     <MESSAGE value="holi" />
-    <option name="LAST_COMMIT_MESSAGE" value="holi" />
+    <MESSAGE value="SQL actualizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="SQL actualizado" />
   </component>
 </project>
