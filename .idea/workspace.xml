@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db1d39e5-f695-4fce-9c15-d0b069417652" name="Changes" comment="Adiccion de botones">
+    <list default="true" id="db1d39e5-f695-4fce-9c15-d0b069417652" name="Changes" comment="Correciones">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
     </list>
@@ -58,22 +58,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="GUI (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI" />
       <module name="untitled9" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+    <configuration name="GUI (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI" />
       <module name="untitled9" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI" />
       <module name="untitled9" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -89,10 +89,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.GUI" />
+        <item itemvalue="Application.GUI (3)" />
+        <item itemvalue="Application.GUI (2)" />
         <item itemvalue="Application.GUI (1)" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main (3)" />
-        <item itemvalue="Application.Main (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -111,7 +111,7 @@
       <workItem from="1702254143138" duration="3049000" />
       <workItem from="1702259843344" duration="48000" />
       <workItem from="1702409881314" duration="8572000" />
-      <workItem from="1702556237200" duration="3253000" />
+      <workItem from="1702556237200" duration="5794000" />
     </task>
     <task id="LOCAL-00001" summary="Conexion a base de datos">
       <created>1700609100853</created>
@@ -141,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702259869599</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Correciones">
+      <created>1702562856185</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702562856185</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +168,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Conexion a base de datos" />
     <MESSAGE value="Adiccion de botones" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adiccion de botones" />
+    <MESSAGE value="Correciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correciones" />
   </component>
 </project>

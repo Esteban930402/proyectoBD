@@ -10,8 +10,10 @@ public class GUI extends JFrame{
     public JTextArea nombreExamen,entidad,cedula,fechaNacimiento,pos,telefono,celular,correo,nombreContacto,celularContacto;
     //
 
+    public JLabel lblCedula,lblEntidad,lblPos,lblNombreExamen,lblTelefono,lblFechaNacimiento,lblCelular,lblCorreo,lblOtraPersona,lblTelOtraPersona;
 
-    public  JPanel principalPanel,buttonPanel,panelFormularios;
+    public JTextField txtCedula,txtEntidad,txtPos,txtTelefono,txtCelular,txtCorreo,txtFechaNacimiento,txtNombreExamen,txtOtraPersona,txtTelOtraPersona;
+    public  JPanel principalPanel,buttonPanel, panelSegundario;
     public JButton ordenes,pacientes,generarMensual,crearOrden,consultarOrden;
     //Ordenes: Crear orden(y despues ingresar datos de examenes), Consultar orden(por numero de factura)
     //Generar mensual: Todos los examenes realizados en el mes
@@ -36,7 +38,7 @@ public class GUI extends JFrame{
     public void panelPrincipal(){
         listener = new Listener();
         principalPanel = new JPanel();
-        panelFormularios = new JPanel();
+        panelSegundario = new JPanel();
         buttonPanel = new JPanel();
         ordenes = new JButton("Ordenes Medicas");
         pacientes = new JButton("Pacientes");
@@ -57,7 +59,7 @@ public class GUI extends JFrame{
         buttonPanel.add(pacientes);
         buttonPanel.add(generarMensual);
         principalPanel.add(buttonPanel,BorderLayout.NORTH);
-        principalPanel.add(panelFormularios,BorderLayout.CENTER);
+        principalPanel.add(panelSegundario,BorderLayout.CENTER);
 
         getContentPane().add(principalPanel);
     }
@@ -69,47 +71,69 @@ public class GUI extends JFrame{
     public void panelOrdenes(){
         consultarOrden = new JButton("Consultar Orden");
         crearOrden = new JButton("Crear Orden");
-        //principalPanel.removeAll();
-        crearOrden();
+
+        crearOrden.addActionListener(listener);
+        consultarOrden.addActionListener(listener);
+        crearOrden.addMouseListener(listener);
+        consultarOrden.addMouseListener(listener);
+
+        panelSegundario.add(crearOrden);
+        panelSegundario.add(consultarOrden);
+        ordenes.setEnabled(false);
+        pacientes.setEnabled(true);
+        generarMensual.setEnabled(true);
         principalPanel.revalidate();
         principalPanel.repaint();
 
 
+
     }
 
+    public void vaciarPanelsegundario(){
+
+        panelSegundario.removeAll();
+        panelSegundario.revalidate();
+        panelSegundario.repaint();
+
+    }
+
+    public void recopilarDatosOrdenes(){
+
+    }
     public void crearOrden(){
+        vaciarPanelsegundario();
         JPanel panelFormularioPaciente = new JPanel(new GridLayout(5, 2)); // 0 filas, 2 columnas
 
         // Crear etiquetas y campos de texto para los datos
-        JLabel lblNombreExamen = new JLabel("  Nombre de Examen:");
-        JTextField txtNombreExamen = new JTextField(10);
+        lblNombreExamen = new JLabel("  Nombre de Examen:");
+        txtNombreExamen = new JTextField(10);
 
-        JLabel lblEntidad = new JLabel("  Entidad - Particular:");
-        JTextField txtEntidad = new JTextField(10);
+        lblEntidad = new JLabel("  Entidad - Particular:");
+        txtEntidad = new JTextField(10);
 
-        JLabel lblCedula = new JLabel("  Cédula:");
-        JTextField txtCedula = new JTextField(10);
+        lblCedula = new JLabel("  Cédula:");
+        txtCedula = new JTextField(10);
 
-        JLabel lblFechaNacimiento = new JLabel("  Fecha de Nacimiento:");
-        JTextField txtFechaNacimiento = new JTextField(10);
+        lblFechaNacimiento = new JLabel("  Fecha de Nacimiento:");
+        txtFechaNacimiento = new JTextField(10);
 
-        JLabel lblPos = new JLabel("  POS:");
-        JTextField txtPos = new JTextField(10);
+        lblPos = new JLabel("  POS:");
+        txtPos = new JTextField(10);
 
-        JLabel lblTelefono = new JLabel("  Teléfono:");
-        JTextField txtTelefono = new JTextField(10);
+        lblTelefono = new JLabel("  Teléfono:");
+        txtTelefono = new JTextField(10);
 
-        JLabel lblCelular = new JLabel("  Celular:");
-        JTextField txtCelular = new JTextField(10);
+        lblCelular = new JLabel("  Celular:");
+        txtCelular = new JTextField(10);
 
-        JLabel lblCorreo = new JLabel("  Correo:");
-        JTextField txtCorreo = new JTextField(10);
+        lblCorreo = new JLabel("  Correo:");
+        txtCorreo = new JTextField(10);
 
-        JLabel lblOtraPersona = new JLabel("  Otra Persona:");
-        JTextField txtOtraPersona = new JTextField(10);
+        lblOtraPersona = new JLabel("  Otra Persona:");
+        txtOtraPersona = new JTextField(10);
 
-        JLabel lblTelOtraPersona = new JLabel("  Teléfono Otra Persona:");
-        JTextField txtTelOtraPersona = new JTextField(10);
+        lblTelOtraPersona = new JLabel("  Teléfono Otra Persona:");
+        txtTelOtraPersona = new JTextField(10);
 
         // Agregar componentes al contenedor
         panelFormularioPaciente.add(lblNombreExamen);
@@ -147,7 +171,12 @@ public class GUI extends JFrame{
         panelBotonAceptar.add(aceptar);
 
         principalPanel.add(panelBotonAceptar,BorderLayout.SOUTH);
-        panelFormularios.add(panelFormularioPaciente);
+        panelSegundario.add(panelFormularioPaciente);
+
+        panelSegundario.revalidate();
+        panelSegundario.repaint();
+        principalPanel.revalidate();
+        principalPanel.repaint();
        // principalPanel.add(panelFormularios,BorderLayout.CENTER);
     }
 
@@ -170,10 +199,18 @@ public class GUI extends JFrame{
             System.out.println("entro");
             panelOrdenes();
         }
+
+        if (e.getSource()==GUI.this.crearOrden){
+            System.out.println("Panel");
+            crearOrden();
+        }
+
+
     }
 
         @Override
         public void mouseClicked(MouseEvent e) {
+
 
         }
 
