@@ -5,10 +5,7 @@ import java.awt.*;
 public class GUI extends JFrame{
 
     private Listener listener;
-
-    //Opcion para registrar paciente en sistemas:
     public JTextArea nombreExamen,entidad,cedula,fechaNacimiento,pos,telefono,celular,correo,nombreContacto,celularContacto;
-    //
     public JLabel lblnroConsecutivo,lblFechaIngreso,lblFechaSolicitud,lblNombreMedico,lblNumeroOrden,lblConsultaCedula;
     public JTextField txtnroConsecutivo,txtFechaIngreso,txtFechaSolicitud,txtNombreMedico,txtNumeroOrden,txtConsultaCedula,txtConsultaTarjetaProfesional;
     public JLabel lblCedula,lblEntidad,lblPos,lblNombreExamen,lblTelefono,lblFechaNacimiento,lblCelular,lblCorreo,lblOtraPersona,lblTelOtraPersona,lblConsultaTarjetaProfesional;
@@ -16,9 +13,6 @@ public class GUI extends JFrame{
     public JTextField txtCedula,txtEntidad,txtPos,txtTelefono,txtCelular,txtCorreo,txtFechaNacimiento,txtNombreExamen,txtOtraPersona,txtTelOtraPersona;
     public  JPanel principalPanel,buttonPanel, panelSegundario,panelInferior;
     public JButton ordenes,pacientes,generarMensual,crearOrden,consultarOrden,crearPaciente,consultarPaciente,salir,medicos;
-    //Ordenes: Crear orden(y despues ingresar datos de examenes), Consultar orden(por numero de factura)
-    //Generar mensual: Todos los examenes realizados en el mes
-    //public  JButton obtenerDatosOrden,ObtenerDatosConsulta,volverMenuPrincipal,obtenerDatosRegistroPaciente;
     public JLabel lblTarjetaProfesional,lblRegistroNombreMedico,lblRegistroApellidosMedico,lblTelefonoMedico,lblDireccionMedico,lblEspecialidad,lblTarjetaProfesinal;
     public JTextField txtTarjetaProfesional,txtRegistroNombreMedico,txtRegistroApellidosMedico,txtTelefonoMedico,txtDireccionMedico,txtEspecialidad;
     public JButton totalAPagar,consultarPorFactura,resultadosMedico;
@@ -404,8 +398,6 @@ public class GUI extends JFrame{
         panelSegundario.add(resultadosMedico);
 
         revalidar();
-
-
     }
 
     public static void main(String[] args) {
@@ -414,16 +406,13 @@ public class GUI extends JFrame{
             });
 
     }
-
     private class Listener implements ActionListener, MouseListener {
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==GUI.this.ordenes){
             System.out.println("entro");
             panelOrdenes();
         }
-
         if (e.getSource()==GUI.this.crearOrden){
             System.out.println("Panel");
             panelCrearOrden();
@@ -458,8 +447,6 @@ public class GUI extends JFrame{
         if (e.getSource()==GUI.this.salir){
 
         }
-
-
     }
 
         @Override
