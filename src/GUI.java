@@ -10,17 +10,18 @@ public class GUI extends JFrame{
     public JTextArea nombreExamen,entidad,cedula,fechaNacimiento,pos,telefono,celular,correo,nombreContacto,celularContacto;
     //
     public JLabel lblnroConsecutivo,lblFechaIngreso,lblFechaSolicitud,lblNombreMedico,lblNumeroOrden,lblConsultaCedula;
-    public JTextField txtnroConsecutivo,txtFechaIngreso,txtFechaSolicitud,txtNombreMedico,txtNumeroOrden,txtConsultaCedula;
-    public JLabel lblCedula,lblEntidad,lblPos,lblNombreExamen,lblTelefono,lblFechaNacimiento,lblCelular,lblCorreo,lblOtraPersona,lblTelOtraPersona;
-
+    public JTextField txtnroConsecutivo,txtFechaIngreso,txtFechaSolicitud,txtNombreMedico,txtNumeroOrden,txtConsultaCedula,txtConsultaTarjetaProfesional;
+    public JLabel lblCedula,lblEntidad,lblPos,lblNombreExamen,lblTelefono,lblFechaNacimiento,lblCelular,lblCorreo,lblOtraPersona,lblTelOtraPersona,lblConsultaTarjetaProfesional;
+    public JButton crearMedico, consultarMedico;
     public JTextField txtCedula,txtEntidad,txtPos,txtTelefono,txtCelular,txtCorreo,txtFechaNacimiento,txtNombreExamen,txtOtraPersona,txtTelOtraPersona;
-    public  JPanel principalPanel,buttonPanel, panelSegundario;
-    public JButton ordenes,pacientes,generarMensual,crearOrden,consultarOrden,crearPaciente,consultarPaciente;
+    public  JPanel principalPanel,buttonPanel, panelSegundario,panelInferior;
+    public JButton ordenes,pacientes,generarMensual,crearOrden,consultarOrden,crearPaciente,consultarPaciente,salir,medicos;
     //Ordenes: Crear orden(y despues ingresar datos de examenes), Consultar orden(por numero de factura)
     //Generar mensual: Todos los examenes realizados en el mes
-    public  JButton obtenerDatosOrden,ObtenerDatosConsulta,volverMenuPrincipal,obtenerDatosRegistroPaciente;
-
-
+    //public  JButton obtenerDatosOrden,ObtenerDatosConsulta,volverMenuPrincipal,obtenerDatosRegistroPaciente;
+    public JLabel lblTarjetaProfesional,lblRegistroNombreMedico,lblRegistroApellidosMedico,lblTelefonoMedico,lblDireccionMedico,lblEspecialidad,lblTarjetaProfesinal;
+    public JTextField txtTarjetaProfesional,txtRegistroNombreMedico,txtRegistroApellidosMedico,txtTelefonoMedico,txtDireccionMedico,txtEspecialidad;
+    public JButton totalAPagar,consultarPorFactura,resultadosMedico;
     public GUI(){
         initGUI();
         this.setTitle("Laboratorio JVES");
@@ -37,6 +38,9 @@ public class GUI extends JFrame{
     }
 
     public void panelPrincipal(){
+        medicos = new JButton("Medicos");
+        salir = new JButton("Salir");
+        panelInferior = new JPanel();
         listener = new Listener();
         principalPanel = new JPanel();
         panelSegundario = new JPanel();
@@ -45,8 +49,14 @@ public class GUI extends JFrame{
         pacientes = new JButton("Pacientes");
         generarMensual = new JButton("Generar extracto mensual");
 
+        ordenes.setEnabled(true);
+        pacientes.setEnabled(true);
+        generarMensual.setEnabled(true);
+
         principalPanel.addMouseListener(listener);
 
+        medicos.addActionListener(listener);
+        salir.addActionListener(listener);
         ordenes.addMouseListener(listener);
         ordenes.addActionListener(listener);
         pacientes.addMouseListener(listener);
@@ -56,15 +66,25 @@ public class GUI extends JFrame{
 
         principalPanel.setLayout(new BorderLayout());
        // panelFormularios.setLayout(new GridLayout(4,4));
+        buttonPanel.add(medicos);
         buttonPanel.add(ordenes);
         buttonPanel.add(pacientes);
         buttonPanel.add(generarMensual);
         principalPanel.add(buttonPanel,BorderLayout.NORTH);
         principalPanel.add(panelSegundario,BorderLayout.CENTER);
+        principalPanel.add(panelInferior,BorderLayout.SOUTH);
 
         getContentPane().add(principalPanel);
     }
 
+    public void revalidar(){
+        panelInferior.repaint();
+        panelInferior.revalidate();
+        panelSegundario.repaint();
+        panelSegundario.revalidate();
+        principalPanel.revalidate();
+        principalPanel.repaint();
+    }
     public void panelPacientes(){
         crearPaciente = new JButton("Crear paciente");
         consultarPaciente = new JButton("Consultar Paciente");
@@ -73,19 +93,17 @@ public class GUI extends JFrame{
         consultarPaciente.addActionListener(listener);
 
         vaciarPanelsegundario();
-
+        panelInferior.add(salir);
         panelSegundario.add(consultarPaciente);
         panelSegundario.add(crearPaciente);
         ordenes.setEnabled(true);
         pacientes.setEnabled(false);
         generarMensual.setEnabled(true);
-        panelSegundario.revalidate();
-        panelSegundario.repaint();
-        principalPanel.revalidate();
-        principalPanel.repaint();
+        revalidar();
     }
 
     public void panelOrdenes(){
+        revalidar();
         consultarOrden = new JButton("Consultar Orden");
         crearOrden = new JButton("Crear Orden");
 
@@ -95,30 +113,51 @@ public class GUI extends JFrame{
         consultarOrden.addMouseListener(listener);
 
         vaciarPanelsegundario();
-
+        panelInferior.add(salir);
         panelSegundario.add(crearOrden);
         panelSegundario.add(consultarOrden);
         ordenes.setEnabled(false);
         pacientes.setEnabled(true);
         generarMensual.setEnabled(true);
-        principalPanel.revalidate();
-        principalPanel.repaint();
+        medicos.setEnabled(true);
+        revalidar();
 
     }
     public void vaciarPanelsegundario(){
-
+        panelInferior.removeAll();
+        panelInferior.revalidate();
+        panelInferior.repaint();
         panelSegundario.removeAll();
         panelSegundario.revalidate();
         panelSegundario.repaint();
 
     }
+    public void panelMedicos(){
+        crearMedico = new JButton("Crear medico");
+        consultarMedico = new JButton("Consultar medico");
 
+        crearMedico.addActionListener(listener);
+        consultarMedico.addActionListener(listener);
+
+        vaciarPanelsegundario();
+
+        panelSegundario.add(crearMedico);
+        panelSegundario.add(consultarMedico);
+        ordenes.setEnabled(true);
+        pacientes.setEnabled(true);
+        generarMensual.setEnabled(true);
+        medicos.setEnabled(false);
+        revalidar();
+
+    }
     public void recopilarDatosPaciente(){
 
     }
 
     public void panelCrearOrden(){
         vaciarPanelsegundario();
+        panelInferior.add(salir);
+        revalidar();
         JPanel panelFormularioOrdenes = new JPanel(new GridLayout(5,2));
 
         lblnroConsecutivo = new JLabel("Consecutivo: ");
@@ -155,16 +194,13 @@ public class GUI extends JFrame{
         JPanel botonSiguiente = new JPanel();
         botonSiguiente.add(siguiente);
 
-        principalPanel.add(botonSiguiente,BorderLayout.SOUTH);
+        panelInferior.add(botonSiguiente);
         panelSegundario.add(panelFormularioOrdenes);
 
-        panelSegundario.revalidate();
-        panelSegundario.repaint();
-        principalPanel.revalidate();
-        principalPanel.repaint();
-
+        revalidar();
     }
     public void crearPaciente(){
+        panelInferior.add(salir);
         vaciarPanelsegundario();
         JPanel panelFormularioPaciente = new JPanel(new GridLayout(5, 2));
 
@@ -234,17 +270,15 @@ public class GUI extends JFrame{
         JPanel panelBotonAceptar = new JPanel();
         panelBotonAceptar.add(aceptar);
 
-        principalPanel.add(panelBotonAceptar,BorderLayout.SOUTH);
+        panelInferior.add(panelBotonAceptar);
         panelSegundario.add(panelFormularioPaciente);
 
-        panelSegundario.revalidate();
-        panelSegundario.repaint();
-        principalPanel.revalidate();
-        principalPanel.repaint();
+        revalidar();
        // principalPanel.add(panelFormularios,BorderLayout.CENTER);
     }
 
     public void consultarOrden(){
+        panelInferior.add(salir);
         vaciarPanelsegundario();
         JPanel panelConsultarOrden = new JPanel(new GridLayout(5,2));
 
@@ -258,13 +292,120 @@ public class GUI extends JFrame{
         JPanel panelBotonConsultar = new JPanel();
         panelBotonConsultar.add(Consultar);
 
-        principalPanel.add(panelBotonConsultar,BorderLayout.SOUTH);
+        panelInferior.add(panelBotonConsultar);
         panelSegundario.add(panelConsultarOrden);
 
-        panelSegundario.revalidate();
-        panelSegundario.repaint();
-        principalPanel.revalidate();
-        principalPanel.repaint();
+        revalidar();
+    }
+
+    public void consultarPaciente(){
+        panelInferior.add(salir);
+        vaciarPanelsegundario();
+        JPanel panelConsultarpaciente = new JPanel(new GridLayout(5,2));
+
+        lblConsultaCedula = new JLabel("Ingrese numero de Cedula: ");
+        txtConsultaCedula = new JTextField(10);
+
+        panelConsultarpaciente.add(lblConsultaCedula);
+        panelConsultarpaciente.add(txtConsultaCedula);
+
+        JButton Consultar = new JButton("Consultar");
+        JPanel panelBotonConsultar = new JPanel();
+        panelBotonConsultar.add(Consultar);
+
+        panelInferior.add(panelBotonConsultar);
+        panelSegundario.add(panelConsultarpaciente);
+
+        revalidar();
+    }
+
+    public void consultarMedico(){
+        panelInferior.add(salir);
+        vaciarPanelsegundario();
+        JPanel panelConsultarMedico = new JPanel(new GridLayout(5,2));
+
+        lblConsultaTarjetaProfesional = new JLabel("Ingrese numero de Cedula: ");
+        txtConsultaTarjetaProfesional = new JTextField(10);
+
+        panelConsultarMedico.add(lblConsultaTarjetaProfesional);
+        panelConsultarMedico.add(txtConsultaTarjetaProfesional);
+
+        JButton Consultar = new JButton("Consultar");
+        JPanel panelBotonConsultar = new JPanel();
+        panelBotonConsultar.add(Consultar);
+
+        panelInferior.add(panelBotonConsultar);
+        panelSegundario.add(panelConsultarMedico);
+
+        revalidar();
+    }
+    public void agregarMedico() {
+        panelInferior.add(salir);
+        vaciarPanelsegundario();
+
+        JPanel panelAgregarMedico = new JPanel(new GridLayout(5, 2));
+
+        lblTarjetaProfesional = new JLabel("Ingrese No. TP: ");
+        txtTarjetaProfesional = new JTextField(10);
+
+        lblRegistroNombreMedico = new JLabel("Ingrese el nombre del medico: ");
+        txtRegistroNombreMedico = new JTextField(10);
+
+        lblRegistroApellidosMedico = new JLabel("Ingrese apellidos: ");
+        txtRegistroApellidosMedico = new JTextField(10);
+
+        lblTelefonoMedico = new JLabel("Ingrese Numero de telefono: ");
+        txtTelefonoMedico = new JTextField(10);
+
+        lblDireccionMedico = new JLabel("Direccion: ");
+        txtDireccionMedico = new JTextField(10);
+
+        lblEspecialidad = new JLabel("Especialidad: ");
+        txtEspecialidad = new JTextField(10);
+
+        panelAgregarMedico.add(lblTarjetaProfesional);
+        panelAgregarMedico.add(txtTarjetaProfesional);
+
+        panelAgregarMedico.add(lblRegistroNombreMedico);
+        panelAgregarMedico.add(txtRegistroNombreMedico);
+
+        panelAgregarMedico.add(lblRegistroApellidosMedico);
+        panelAgregarMedico.add(txtRegistroApellidosMedico);
+
+        panelAgregarMedico.add(lblTelefonoMedico);
+        panelAgregarMedico.add(txtTelefonoMedico);
+
+        panelAgregarMedico.add(lblDireccionMedico);
+        panelAgregarMedico.add(txtDireccionMedico);
+
+        panelAgregarMedico.add(lblEspecialidad);
+        panelAgregarMedico.add(txtEspecialidad);
+
+        JButton aceptarConsultarMedico = new JButton("Aceptar");
+        JPanel botonConsultarMedico = new JPanel();
+        botonConsultarMedico.add(aceptarConsultarMedico);
+
+        panelInferior.add(botonConsultarMedico); // Agrega el panel del botón
+        panelSegundario.add(panelAgregarMedico);
+        revalidar();
+    }
+    public void PanelExtractoMensual(){
+        vaciarPanelsegundario();
+        totalAPagar = new JButton("Descargar total a pagar");
+        consultarPorFactura = new JButton("Consultar por factura");
+        resultadosMedico = new JButton("Descargar Consolidado medico");
+
+        totalAPagar.addActionListener(listener);
+        consultarPorFactura.addActionListener(listener);
+
+
+        panelSegundario.add(totalAPagar);
+        panelSegundario.add(consultarPorFactura);
+        panelSegundario.add(resultadosMedico);
+
+        revalidar();
+
+
     }
 
     public static void main(String[] args) {
@@ -297,6 +438,25 @@ public class GUI extends JFrame{
         if (e.getSource()==GUI.this.crearPaciente){
             System.out.println("Panel paciente");
             crearPaciente();
+        }
+        if (e.getSource()==GUI.this.consultarPaciente){
+            consultarPaciente();
+        }
+        if (e.getSource()==GUI.this.medicos){
+            panelMedicos();
+        }
+        if (e.getSource()==GUI.this.consultarMedico){
+            consultarMedico();
+        }
+        if (e.getSource()==GUI.this.crearMedico){
+            agregarMedico();
+        }
+        if (e.getSource()==GUI.this.generarMensual){
+            PanelExtractoMensual();
+        }
+
+        if (e.getSource()==GUI.this.salir){
+
         }
 
 

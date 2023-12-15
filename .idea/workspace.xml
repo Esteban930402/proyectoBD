@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db1d39e5-f695-4fce-9c15-d0b069417652" name="Changes" comment="SQL actualizado">
+    <list default="true" id="db1d39e5-f695-4fce-9c15-d0b069417652" name="Changes" comment="Falta consolidado mensual">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
     </list>
@@ -50,7 +50,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.GUI (2)">
+  <component name="RunManager" selected="Application.GUI (4)">
     <configuration name="GUI (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI" />
       <module name="untitled9" />
@@ -65,14 +65,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GUI (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="GUI (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI" />
       <module name="untitled9" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GUI (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="GUI (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI" />
       <module name="untitled9" />
       <method v="2">
@@ -88,11 +88,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GUI (2)" />
-        <item itemvalue="Application.GUI" />
-        <item itemvalue="Application.GUI (1)" />
-        <item itemvalue="Application.GUI (5)" />
         <item itemvalue="Application.GUI (4)" />
+        <item itemvalue="Application.GUI" />
+        <item itemvalue="Application.GUI (3)" />
+        <item itemvalue="Application.GUI (2)" />
+        <item itemvalue="Application.GUI (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -111,7 +111,7 @@
       <workItem from="1702254143138" duration="3049000" />
       <workItem from="1702259843344" duration="48000" />
       <workItem from="1702409881314" duration="8572000" />
-      <workItem from="1702556237200" duration="10911000" />
+      <workItem from="1702556237200" duration="25246000" />
     </task>
     <task id="LOCAL-00001" summary="Conexion a base de datos">
       <created>1700609100853</created>
@@ -162,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702566715199</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Falta consolidado mensual">
+      <created>1702576522179</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1702576522179</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,6 +192,7 @@
     <MESSAGE value="Correciones" />
     <MESSAGE value="holi" />
     <MESSAGE value="SQL actualizado" />
-    <option name="LAST_COMMIT_MESSAGE" value="SQL actualizado" />
+    <MESSAGE value="Falta consolidado mensual" />
+    <option name="LAST_COMMIT_MESSAGE" value="Falta consolidado mensual" />
   </component>
 </project>
